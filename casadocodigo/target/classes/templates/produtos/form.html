@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+
+<head>
+<meta charset="UTF-8" />
+<title>Cobrança</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+
+	<form action="/produtos" method="post">
+
+		<div>
+			<label>Titulo</label> <input type="text" name="titulo" />
+		</div>
+		<div>
+			<label>Descrição</label>
+			<textarea rows="10" cols="20" name="descricao"></textarea>
+		</div>
+		<div>
+			<label>Paginas</label> <input type="text" name="paginas" />
+		</div>
+
+<!-- 		<div th:each="tipoPreco, status : ${tipos}"> -->
+<!-- 			<label th:text="${tipoPreco}"></label>  -->
+<!-- 			<input type="text" 	th:name="preco[${status.index}].valor"/>  -->
+<!-- 			<input type="hidden" th:name="preco[${status.index}].tipo" th:value="${tipoPreco}"/> -->
+<!-- 		</div> -->
+		
+		
+		<table>
+            <tbody>
+              <tr th:each="tipoPreco,rowStat : ${tipos.rows}">
+                <td th:text="${rowStat.count}">1</td>
+                <td th:text="[${row.preco}].vslor">Thymus Thymi</td>
+                <td th:text="[${row.preco}].tipo">12</td>
+              </tr>
+            </tbody>
+          </table>
+		
+		
+		<button type="submit">Cadastrar</button>
+	</form>
+	<script src="/js/jquery-2.1.4.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
